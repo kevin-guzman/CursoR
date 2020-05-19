@@ -12,6 +12,8 @@ import { StyleSheet,
 
 import imagen from './media/Meme.jpg'
 import { Icon } from 'react-native-elements'
+import { LinearGradient } from 'expo-linear-gradient';
+import ProgressCircle from 'react-native-progress-circle'
      
 
 
@@ -35,13 +37,13 @@ import { Icon } from 'react-native-elements'
     const {Contraseña}= this.state
     const {Estado} = this.state
     if ( (Nombre === '') && (Contraseña === '')){
-      //Alert.alert('Nombre o contraseña vacíos')
+      Alert.alert('Nombre o contraseña vacíos')
       //{(Estado)=>{this.setState('Nombre o contraseña vacíos')}}
       
 
     }
     else{
-      Alert.alert('Usuario: '+ Nombre + ' Contraseña: '+ Contraseña)
+      Alert.alert('Usuario: '+ Nombre + '\nContraseña: '+ Contraseña)
     }
     
   }
@@ -63,7 +65,12 @@ import { Icon } from 'react-native-elements'
 
 
         return (
-          <View style={styles.container}>
+        <LinearGradient
+                colors={[   'rgba(77,14,144,0.87)','rgba(25,47,106,0.97)'  ]}
+                style={styles.container}
+                //style={{ padding: 15, alignItems: 'center', borderRadius: 5 }}
+              >
+          <View style={styles.container2}>
       
       
                 <View style={styles.header} >
@@ -93,7 +100,7 @@ import { Icon } from 'react-native-elements'
                   <View>
                     <TextInput
                       style={styles.textimput}
-                      placeholder="Nombree"
+                      placeholder="Nombre"
                       //value={Nombre}
                       onChangeText={(Nombre)=> {this.setState({Nombre})}}
                       >
@@ -130,9 +137,14 @@ import { Icon } from 'react-native-elements'
                   <View style={styles.f2} />
                   <View style={styles.f3} />
                 </View>
+
+                
+
+                
       
       
           </View>
+        </LinearGradient>
         );
 
 
@@ -147,12 +159,20 @@ const styles = StyleSheet.create({
   container: {
     flex: 1,
     flexDirection:'column',
-    backgroundColor: '#fff',
+    //backgroundColor: '#fff',
     //alignItems: 'center',
-    marginHorizontal:'20%',
-    marginVertical:'15%',
+    //marginHorizontal:'1%',
+    marginTop:'8%',
     //justifyContent: 'center',
 
+  },
+
+  container2:{
+    flex: 1,
+    flexDirection:'column',
+    marginTop:'8%',
+    marginHorizontal:'5%',
+ 
   },
 
   header:{
