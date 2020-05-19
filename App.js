@@ -11,6 +11,7 @@ import { StyleSheet,
       } from 'react-native';
 
 import imagen from './media/Meme.jpg'
+import { Icon } from 'react-native-elements'
      
 
 
