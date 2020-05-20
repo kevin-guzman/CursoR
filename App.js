@@ -11,7 +11,9 @@ import { StyleSheet,
       } from 'react-native';
 
 import imagen from './media/Meme.jpg'
-import { Icon } from 'react-native-elements'
+//import Icon from 'react-native-vector-icons/FontAwesome';
+import { Icon } from 'react-native-elements';
+import { Slider } from 'react-native-elements';
 import { LinearGradient } from 'expo-linear-gradient';
 import ProgressCircle from 'react-native-progress-circle'
      
@@ -62,11 +64,12 @@ import ProgressCircle from 'react-native-progress-circle'
     const {Nombre}= this.state
     const {Contraseña}= this.state
     const {Estado} = this.state
+    const {value}= this.state
 
 
         return (
         <LinearGradient
-                colors={[   'rgba(77,14,144,0.87)','rgba(25,47,106,0.97)'  ]}
+                colors={[ 'gray', 'black' ]} // 'rgba(77,14,144,0.87)','rgba(25,47,106,0.97)'  
                 style={styles.container}
                 //style={{ padding: 15, alignItems: 'center', borderRadius: 5 }}
               >
@@ -101,7 +104,6 @@ import ProgressCircle from 'react-native-progress-circle'
                     <TextInput
                       style={styles.textimput}
                       placeholder="Nombre"
-                      //value={Nombre}
                       onChangeText={(Nombre)=> {this.setState({Nombre})}}
                       >
                     </TextInput>
@@ -118,24 +120,74 @@ import ProgressCircle from 'react-native-progress-circle'
                   </View>
 
                   <View>
-                    <Text>
-                      {Estado}
-                    </Text>
+                    <Slider
+                    maximumValue={100}
+                    step={1}
+                    value={this.state.value}
+                    onValueChange={value => this.setState({ value })}
+                    />
+                    <Text>Value: {this.state.value}</Text>
                   </View>
 
                 </View>
 
 
                 <View style={styles.leg} >
-                  <View style={styles.f1} />
-                  <View style={styles.f2} />
-                  <View style={styles.f3} />
+                  
+                
+
+                  <Icon
+                    name='g-translate'
+                    color='#00aced' />
+
+                  <Icon
+                    name='sc-telegram'
+                    type='evilicon'
+                    color='#517fa4'
+                  />
+
+                  <Icon
+                    reverse
+                    name='ios-american-football'
+                    type='ionicon'
+                    color='#517fa4'
+                  />
+
+                  
+
                 </View>
 
                 <View style={styles.footer} >
-                  <View style={styles.f1} />
-                  <View style={styles.f2} />
-                  <View style={styles.f3} />
+                  <ProgressCircle
+                    percent={this.state.value}
+                    radius={30}
+                    borderWidth={8}
+                    color="#3399FF"
+                    shadowColor="#999"
+                    bgColor="#fff"
+                  >
+
+                    <Icon
+                    name='rowing' />
+
+                  </ProgressCircle>
+
+                  <ProgressCircle
+                    percent={this.state.value}
+                    radius={30}
+                    borderWidth={5}
+                    color='rgba(66,167,35,1)'
+                    shadowColor="rgba(12,65,124,1)"
+                    bgColor='#fff'
+                  >
+                    <Icon
+                      raised
+                      name='heartbeat'
+                      type='font-awesome'
+                      color='#f50'
+                      onPress={() => console.log('hello')} />
+                </ProgressCircle>
+
                 </View>
 
                 
@@ -223,6 +275,7 @@ const styles = StyleSheet.create({
   footer:{
     flex:1,
     flexDirection:'row',
+    marginVertical:'2%',
     alignItems:'center',
     justifyContent:'space-between',
     paddingHorizontal:'10%'
