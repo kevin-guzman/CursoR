@@ -40,8 +40,7 @@ import ProgressCircle from 'react-native-progress-circle'
     const {Estado} = this.state
     if ( (Nombre === '') && (Contraseña === '')){
       Alert.alert('Nombre o contraseña vacíos')
-      //{(Estado)=>{this.setState('Nombre o contraseña vacíos')}}
-      
+      //{(Estado)=>{this.setState('Nombre o contraseña vacíos')}} 
 
     }
     else{
@@ -69,7 +68,7 @@ import ProgressCircle from 'react-native-progress-circle'
 
         return (
         <LinearGradient
-                colors={[ 'gray', 'black' ]} // 'rgba(77,14,144,0.87)','rgba(25,47,106,0.97)'  
+                colors={[ 'rgba(10,77,193,1)' , 'rgba(43,148,199,1)' ]} // 'rgba(77,14,144,0.87)','rgba(25,47,106,0.97)'  
                 style={styles.container}
                 //style={{ padding: 15, alignItems: 'center', borderRadius: 5 }}
               >
@@ -121,13 +120,26 @@ import ProgressCircle from 'react-native-progress-circle'
 
                   <View>
                     <Slider
-                    maximumValue={100}
-                    step={1}
-                    value={this.state.value}
-                    onValueChange={value => this.setState({ value })}
+                      maximumValue={100}
+                      step={1}
+                      value={this.state.value}
+                      onValueChange={value => this.setState({ value })}
                     />
                     <Text>Value: {this.state.value}</Text>
                   </View>
+
+                  <LinearGradient
+                    colors={[ 'rgba(77,14,144,1)','rgba(25,47,106,1)' ]}
+                    style={{width:'90%',
+                            height:'70%',
+                            borderRadius:5, 
+                            alignSelf:'center',
+                            borderColor:'black',
+                            borderWidth:2,
+                          }}
+                  >
+
+                  </LinearGradient>
 
                 </View>
 
@@ -139,6 +151,10 @@ import ProgressCircle from 'react-native-progress-circle'
                   <Icon
                     name='g-translate'
                     color='#00aced' />
+
+                  <Icon 
+                    name='security'
+                    color='rgba(77,14,144,0.87)' />
 
                   <Icon
                     name='sc-telegram'
@@ -160,15 +176,18 @@ import ProgressCircle from 'react-native-progress-circle'
                 <View style={styles.footer} >
                   <ProgressCircle
                     percent={this.state.value}
-                    radius={30}
-                    borderWidth={8}
+                    radius={40}
+                    borderWidth={4}
                     color="#3399FF"
                     shadowColor="#999"
-                    bgColor="#fff"
+                    bgColor="rgba(66,167,35,1)"
                   >
 
                     <Icon
                     name='rowing' />
+                    <Text>
+                      Valor: {this.state.value}
+                    </Text>
 
                   </ProgressCircle>
 
@@ -181,12 +200,14 @@ import ProgressCircle from 'react-native-progress-circle'
                     bgColor='#fff'
                   >
                     <Icon
-                      raised
+                      //raised
                       name='heartbeat'
                       type='font-awesome'
                       color='#f50'
                       onPress={() => console.log('hello')} />
                 </ProgressCircle>
+
+                
 
                 </View>
 
@@ -215,6 +236,7 @@ const styles = StyleSheet.create({
     //alignItems: 'center',
     //marginHorizontal:'1%',
     marginTop:'8%',
+    
     //justifyContent: 'center',
 
   },
@@ -266,7 +288,7 @@ const styles = StyleSheet.create({
   leg:{
     flex:1,
     padding:'3%',
-    marginVertical:'1%',
+    marginTop:'10%',
     flexDirection:'column',
     justifyContent:'space-between',
     alignItems:'center',
